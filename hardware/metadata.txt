@@ -1,0 +1,3 @@
+Color: Red
+Silkscreen colors: White
+Dimensions: 119mm x 119mm

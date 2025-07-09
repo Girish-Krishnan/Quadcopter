@@ -1,41 +1,26 @@
-# Prerequisites
-*.d
+.*.lck
+*.pro
+*~
+~$*
+*.l#?
+*.s#?
+*.b#?
+starter
+.release
+*.cam
+.DS_Store
+.test.out
+.theia/
+test
+firmware/libraries/Adafruit_BusIO/
+firmware/libraries/Adafruit_LSM6DS/
+firmware/libraries/Adafruit_LIS3MDL/
+firmware/libraries/QuadClass-AHRS/
+firmware/libraries/QuadClass-LSM9DS1/
+firmware/libraries/QuadClass-Sensor/
+firmware/libraries/SparkFun_SerLCD_Arduino_Library
+firmware/libraries/SoftI2CMaster/
+firmware/hardware/QuadClass-Atmega128RFA-Arduino-Addon/
+QuadClass-Quadcopter-Starter-*
+firmware/test_*/
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Linker files
-*.ilk
-
-# Debugger Files
-*.pdb
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-
-# debug information files
-*.dwo
