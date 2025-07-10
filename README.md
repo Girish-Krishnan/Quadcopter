@@ -3,7 +3,7 @@
 Open-source hardware and firmware for a compact 4‑rotor UAV.
 [**Watch the demo videos on YouTube**](https://www.youtube.com/playlist?list=PLE_L-WPduPxbYMuvPQKa1v5fUpK1VIxrP)
 
-<img src="./media/assembled.png" alt="Assembled Quadcopter" width="394"/> |<img src="./media/pid_tuning.gif" alt="PID Tuning Animation" width="300"/>
+|<img src="./media/pid_tuning.gif" alt="PID Tuning Animation" width="300"/>|<img src="./media/assembled.png" alt="Assembled Quadcopter" width="394"/> |
 |---|---|
 
 This project contains hardware and firmware for a custom 4‑rotor UAV. The design is based on the ATmega128RFA1 microcontroller which integrates a 2.4 GHz radio. The repository includes the printed circuit board layout, flight controller firmware, and code for a handheld remote.
