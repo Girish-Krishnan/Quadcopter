@@ -1,5 +1,10 @@
 # Quadcopter
 
+[Demo Videos](https://www.youtube.com/playlist?list=PLE_L-WPduPxbYMuvPQKa1v5fUpK1VIxrP)
+
+|![](./media/assembled.png)|![](./media/pid_tuning.png)|
+|---|---|
+
 This project contains hardware and firmware for a custom 4‑rotor UAV. The design is based on the ATmega128RFA1 microcontroller which integrates a 2.4 GHz radio. The repository includes the printed circuit board layout, flight controller firmware, and code for a handheld remote.
 
 ## System Overview
@@ -45,6 +50,20 @@ The quadcopter PCB is a four‑layer board measuring 119×119 mm with red solde
 EAGLE design files are under `hardware/` and the manufacturing CAM outputs are zipped as `quadcopter.cam.zip`.
 
 The `hardware/QuadClass_Atmega128RFA_Arduino_Addon` folder contains board definitions so the Arduino IDE can program the ATmega128RFA1 board. Copy this directory into the `hardware` folder of your Arduino sketchbook to install the board support.
+
+Here is a schematic overview of the quadcopter:
+
+![](./media/quad_schematic.png)
+
+Here is the layout of the quadcopter PCB, showing the placement of components and routing:
+
+![](./media/quad_layout.png)
+
+Here are pictures of the top and bottom layers of the PCB:
+
+|![](./media/pcb_top.png)|![](./media/pcb_bottom.png)|
+|---|---|
+| Top Layer | Bottom Layer |
 
 ## Firmware Overview
 
@@ -96,6 +115,10 @@ The remote hardware exposes the following controls:
 All pins are defined in `quad_remote.h` under the `Remote` library.
 
 ### PID Control Loops
+
+Here is the setup used for tuning the PID for the roll and pitch axes:
+
+![](./media/pid_tuning.png)
 
 The flight controller stabilizes the aircraft using three independent PID loops
 for roll, pitch and yaw. Error values are computed from the difference between
