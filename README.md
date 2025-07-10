@@ -1,5 +1,9 @@
 # Quadcopter
 
+*Made by Girish Krishnan and Anish Kulkarni*
+
+---
+
 Open-source hardware and firmware for a compact 4‑rotor UAV.
 [**Watch the demo videos on YouTube**](https://www.youtube.com/playlist?list=PLE_L-WPduPxbYMuvPQKa1v5fUpK1VIxrP)
 
