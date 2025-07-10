@@ -2,7 +2,7 @@
 
 [Demo Videos](https://www.youtube.com/playlist?list=PLE_L-WPduPxbYMuvPQKa1v5fUpK1VIxrP)
 
-|![](./media/assembled.png)|![](./media/pid_tuning.png)|
+|![](./media/assembled.png)|![](./media/pid_tuning.gif)|
 |---|---|
 
 This project contains hardware and firmware for a custom 4‑rotor UAV. The design is based on the ATmega128RFA1 microcontroller which integrates a 2.4 GHz radio. The repository includes the printed circuit board layout, flight controller firmware, and code for a handheld remote.
