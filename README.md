@@ -2,6 +2,24 @@
 
 This project contains hardware and firmware for a custom 4‑rotor UAV. The design is based on the ATmega128RFA1 microcontroller which integrates a 2.4 GHz radio. The repository includes the printed circuit board layout, flight controller firmware, and code for a handheld remote.
 
+## System Overview
+
+The project consists of two main pieces of hardware:
+
+1. **Quadcopter** – a compact flight controller board driving four brushless motors via electronic speed controllers (ESCs).
+2. **Remote** – a handheld transmitter with gimbal sticks, buttons and an LCD that sends pilot commands over 2.4 GHz.
+
+The diagram below summarizes the high–level flow of data and control.
+
+```mermaid
+graph LR
+    Remote[(Handheld Remote)] -- 2.4GHz --> MCU[ATmega128RFA1]
+    MCU --> IMU[LSM6DSOX IMU]
+    MCU --> ESCs
+    ESCs --> Motors
+    MCU -- Telemetry --> Remote
+```
+
 ## Repository Layout
 
 ```
@@ -22,6 +40,7 @@ The quadcopter PCB is a four‑layer board measuring 119×119 mm with red solde
 - **LSM6DSOX** IMU for 3‑axis gyro and accelerometer
 - FET motor drivers for four brushless ESCs
 - Power regulation, battery monitor (via `BAT_SENSE_PIN`), and status LEDs
+- Connectors for an external receiver and programming headers
 
 EAGLE design files are under `hardware/` and the manufacturing CAM outputs are zipped as `quadcopter.cam.zip`.
 
@@ -67,6 +86,37 @@ The remote uses analog gimbals, push buttons, a rotary encoder and a SerLCD disp
 
 Incoming packets from the quad provide its state and battery status so the remote can display feedback to the user.
 
+The remote hardware exposes the following controls:
+
+- Two gimbal sticks (yaw/throttle and roll/pitch) wired to analog inputs A0–A3.
+- A rotary encoder with push‑button for menu navigation.
+- Five directional buttons for trims and menu actions.
+- A small serial LCD showing mode and battery levels.
+
+All pins are defined in `quad_remote.h` under the `Remote` library.
+
+### PID Control Loops
+
+The flight controller stabilizes the aircraft using three independent PID loops
+for roll, pitch and yaw. Error values are computed from the difference between
+the desired setpoint (received from the remote) and the measured angle or rate
+from the IMU. Each loop produces a correction that is mixed into the individual
+motor commands.
+
+```mermaid
+graph TD
+    R[Remote input] -->|setpoint| E[Error]
+    IMU -- feedback --> E
+    E --> P[P gain]
+    E --> I[I gain]
+    E --> D[D gain]
+    P --> SUM
+    I --> SUM
+    D --> SUM
+    SUM --> MIX(Motor Mixer)
+    MIX --> Motors
+```
+
 ## Building and Uploading
 
 1. Install the Arduino IDE.
@@ -78,3 +128,7 @@ Incoming packets from the quad provide its state and battery status so the remot
 ## License
 
 This project is released under the MIT License; see [LICENSE](LICENSE) for details.
+
+## References
+
+- [NVSL QuadClass Resources](https://github.com/NVSL/QuadClass-Resources/tree/master)
