@@ -1,11 +1,35 @@
 # Quadcopter
 
-[Demo Videos](https://www.youtube.com/playlist?list=PLE_L-WPduPxbYMuvPQKa1v5fUpK1VIxrP)
+Open-source hardware and firmware for a compact 4‑rotor UAV.
+[**Watch the demo videos on YouTube**](https://www.youtube.com/playlist?list=PLE_L-WPduPxbYMuvPQKa1v5fUpK1VIxrP)
 
 <img src="./media/assembled.png" alt="Assembled Quadcopter" width="394"/> |<img src="./media/pid_tuning.gif" alt="PID Tuning Animation" width="300"/>
 |---|---|
 
 This project contains hardware and firmware for a custom 4‑rotor UAV. The design is based on the ATmega128RFA1 microcontroller which integrates a 2.4 GHz radio. The repository includes the printed circuit board layout, flight controller firmware, and code for a handheld remote.
+
+## Table of Contents
+- [Quadcopter](#quadcopter)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [System Overview](#system-overview)
+  - [Repository Layout](#repository-layout)
+  - [Hardware Overview](#hardware-overview)
+  - [Firmware Overview](#firmware-overview)
+    - [Wireless Protocol](#wireless-protocol)
+    - [Flight Controller (`quad_flight.ino`)](#flight-controller-quad_flightino)
+    - [Remote Firmware (`remote_firmware.ino`)](#remote-firmware-remote_firmwareino)
+    - [PID Control Loops](#pid-control-loops)
+  - [Building and Uploading](#building-and-uploading)
+  - [License](#license)
+  - [References](#references)
+
+## Features
+- Flight controller based on the ATmega128RFA1 with integrated 2.4 GHz radio
+- Handheld remote with dual gimbals, LCD and menu navigation
+- Telemetry link for battery monitoring and state feedback
+- PID tuning directly from the remote
+- Four-layer PCB with on-board ESC drivers and IMU
 
 ## System Overview
 
