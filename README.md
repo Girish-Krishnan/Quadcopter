@@ -5,7 +5,7 @@
 ---
 
 Open-source hardware and firmware for a compact 4‑rotor UAV.
-[**Watch the demo videos on YouTube**](https://www.youtube.com/playlist?list=PLE_L-WPduPxbYMuvPQKa1v5fUpK1VIxrP)
+[**Watch the demo videos on YouTube!**](https://www.youtube.com/playlist?list=PLE_L-WPduPxbYMuvPQKa1v5fUpK1VIxrP)
 
 |<img src="./media/pid_tuning.gif" alt="PID Tuning Animation" width="300"/>|<img src="./media/assembled.png" alt="Assembled Quadcopter" width="394"/> |
 |---|---|
