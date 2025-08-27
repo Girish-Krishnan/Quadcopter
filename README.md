@@ -22,8 +22,9 @@ This project contains hardware and firmware for a custom 4‑rotor UAV. The desi
   - [Firmware Overview](#firmware-overview)
     - [Wireless Protocol](#wireless-protocol)
     - [Flight Controller (`quad_flight.ino`)](#flight-controller-quad_flightino)
-    - [Remote Firmware (`remote_firmware.ino`)](#remote-firmware-remote_firmwareino)
+  - [Remote Firmware (`remote_firmware.ino`)](#remote-firmware-remote_firmwareino)
     - [PID Control Loops](#pid-control-loops)
+    - [State Machines](#state-machines)
   - [Building and Uploading](#building-and-uploading)
   - [License](#license)
   - [References](#references)
@@ -166,6 +167,31 @@ graph TD
     D --> SUM
     SUM --> MIX(Motor Mixer)
     MIX --> Motors
+```
+
+### State Machines
+
+#### Quadcopter
+
+```mermaid
+stateDiagram-v2
+    direction LR
+    [*] --> QUAD_RESET
+    QUAD_RESET --> DISARMED: Startup complete
+    DISARMED --> ARMED: Receive ARM
+    ARMED --> DISARMED: Receive DISARM or link loss
+```
+
+#### Remote
+
+```mermaid
+stateDiagram-v2
+    direction LR
+    [*] --> DISARMED
+    DISARMED --> CALIBRATION: Center button
+    CALIBRATION --> DISARMED: Save calibration
+    DISARMED --> ARMED: Stick combo 3s
+    ARMED --> DISARMED: Center button or QUAD_RESET from quad
 ```
 
 ## Building and Uploading
