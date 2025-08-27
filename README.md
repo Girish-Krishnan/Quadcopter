@@ -192,7 +192,7 @@ stateDiagram-v2
     CALIBRATION --> DISARMED: Save calibration
     DISARMED --> ARMED: Stick combo 3s
     ARMED --> DISARMED: Center button or QUAD_RESET from quad
-```
+ ```
 
 ## Building and Uploading
 
